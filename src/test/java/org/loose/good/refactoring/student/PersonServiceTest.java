@@ -8,18 +8,18 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class ManagerTest {
+public class PersonServiceTest {
 
-    private Manager manager;
+    private PersonService personService;
 
     @Before
     public void setUp() {
-        manager = new Manager();
+        personService = new PersonService();
     }
 
     @Test
     public void getStudentNames() {
-        List<String> studentNames = manager.getPeopleNames(getTestPeople());
+        List<String> studentNames = personService.getPeopleNames(getTestPeople());
 
         List<String> expectedNames = Arrays.asList("Amy Adams", "Ashley Cooper", "Daniel Foster", "James Close",
                 "James Davies", "Jane Smith", "Margret Flower", "Samantha Dish", "Tom Clark");

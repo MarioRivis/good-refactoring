@@ -44,4 +44,8 @@ public class Person {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    String getFullName() {
+        return getFirstName() + " " + getLastName();
+    }
 }
