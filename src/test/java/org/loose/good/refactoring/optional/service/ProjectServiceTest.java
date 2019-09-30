@@ -24,9 +24,7 @@ public class ProjectServiceTest {
     public static final String NON_EXISTING_PROJECT_ID = "nothing";
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
-    private final PrintStream originalErr = System.err;
 
     private ProjectService projectService;
 
