@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PersonService {
 
-    public List<String> getPeopleNames(List<Person> people) {
+    public List<String> getOveragePeopleNames(List<Person> people) {
 
         List<Person> overagePeople = keepOnlyOveragePeople(people);
 
