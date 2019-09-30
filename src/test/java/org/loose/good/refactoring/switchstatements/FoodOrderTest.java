@@ -45,12 +45,12 @@ public class FoodOrderTest {
         return new UrbanFoodOrder(getItems());
     }
 
-    private FoodOrder getExtraurbanFoodOrder() {
-        return new ExtraurbanFoodOrder(getItems());
-    }
-
     private FoodOrder getSuburbanFoodOrder() {
         return new SuburbanFoodOrder(getItems());
+    }
+
+    private FoodOrder getExtraurbanFoodOrder() {
+        return new ExtraurbanFoodOrder(getItems());
     }
 
     private List<Item> getItems() {
