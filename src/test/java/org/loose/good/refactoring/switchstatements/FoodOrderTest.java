@@ -16,21 +16,9 @@ public class FoodOrderTest {
         int expectedSuburbanPrice = expectedItemsPrice + 15;
         int expectedExtraurbanPrice = expectedItemsPrice + 20;
 
-        assertEquals(expectedUrbanPrice, getUrbanFoodOrder().getPrice());
-        assertEquals(expectedSuburbanPrice, getSuburbanFoodOrder().getPrice());
-        assertEquals(expectedExtraurbanPrice, getExtraurbanFoodOrder().getPrice());
-    }
-
-    private FoodOrder getUrbanFoodOrder() {
-        return new UrbanFoodOrder(getItems());
-    }
-
-    private FoodOrder getExtraurbanFoodOrder() {
-        return new ExtraurbanFoodOrder(getItems());
-    }
-
-    private FoodOrder getSuburbanFoodOrder() {
-        return new SuburbanFoodOrder(getItems());
+        assertEquals(expectedUrbanPrice, new UrbanFoodOrder().getPrice(getItems()));
+        assertEquals(expectedSuburbanPrice, new SuburbanFoodOrder().getPrice(getItems()));
+        assertEquals(expectedExtraurbanPrice, new ExtraurbanFoodOrder().getPrice(getItems()));
     }
 
     private List<Item> getItems() {

@@ -2,14 +2,8 @@ package org.loose.good.refactoring.switchstatements;
 
 import java.util.List;
 
-public abstract class FoodOrder {
-    private List<Item> items;
-
-    protected FoodOrder(List<Item> items) {
-        this.items = items;
-    }
-
-    public int getPrice() {
+public interface FoodOrder {
+    default int getPrice(List<Item> items) {
         int itemsTotal = 0;
         for (Item item : items) {
             itemsTotal += item.getPrice();
@@ -17,5 +11,5 @@ public abstract class FoodOrder {
         return itemsTotal + getDeliveryPrice();
     }
 
-    protected abstract int getDeliveryPrice();
+    int getDeliveryPrice();
 }

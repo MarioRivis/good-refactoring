@@ -2,13 +2,9 @@ package org.loose.good.refactoring.switchstatements;
 
 import java.util.List;
 
-public class SuburbanFoodOrder extends FoodOrder {
-    protected SuburbanFoodOrder(List<Item> items) {
-        super(items);
-    }
-
+public class SuburbanFoodOrder implements FoodOrder {
     @Override
-    protected int getDeliveryPrice() {
+    public int getDeliveryPrice() {
         return 15;
     }
 }
