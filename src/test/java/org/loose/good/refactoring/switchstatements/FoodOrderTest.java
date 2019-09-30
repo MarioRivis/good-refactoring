@@ -11,29 +11,46 @@ import static org.junit.Assert.assertEquals;
 public class FoodOrderTest {
 
     private FoodOrder foodOrder;
+    private int expectedUrbanPrice;
+    private int expectedSuburbanPrice;
+    private int expectedExtraurbanPrice;
+
+    @Before
+    public void setUp() {
+        int expectedItemsPrice = 48;
+        expectedUrbanPrice = expectedItemsPrice + 10;
+        expectedSuburbanPrice = expectedItemsPrice + 15;
+        expectedExtraurbanPrice = expectedItemsPrice + 20;
+    }
 
     @Test
-    public void getPrice() {
-        int expectedItemsPrice = 48;
-        int expectedUrbanPrice = expectedItemsPrice + 10;
-        int expectedSuburbanPrice = expectedItemsPrice + 15;
-        int expectedExtraurbanPrice = expectedItemsPrice + 20;
-
-        assertEquals(expectedUrbanPrice, getUrbanFoodOrder().getPrice());
-        assertEquals(expectedSuburbanPrice, getSuburbanFoodOrder().getPrice());
-        assertEquals(expectedExtraurbanPrice, getExtraurbanFoodOrder().getPrice());
+    public void getUrbanPrice() {
+        foodOrder = getUrbanFoodOrder();
+        assertEquals(expectedUrbanPrice, foodOrder.getPrice());
     }
 
-    private FoodOrder getExtraurbanFoodOrder() {
-        return new FoodOrder(getItems(), DeliveryType.EXTRAURBAN);
+    @Test
+    public void getSuburbanPrice() {
+        foodOrder = getSuburbanFoodOrder();
+        assertEquals(expectedSuburbanPrice, foodOrder.getPrice());
     }
 
-    private FoodOrder getSuburbanFoodOrder() {
-        return new FoodOrder(getItems(), DeliveryType.SUBURBAN);
+    @Test
+    public void getExtraurbanPrice() {
+        foodOrder = getExtraurbanFoodOrder();
+        assertEquals(expectedExtraurbanPrice, foodOrder.getPrice());
     }
 
     private FoodOrder getUrbanFoodOrder() {
-        return new FoodOrder(getItems(), DeliveryType.URBAN);
+        return new UrbanFoodOrder(getItems());
+    }
+
+    private FoodOrder getExtraurbanFoodOrder() {
+        return new ExtraurbanFoodOrder(getItems());
+    }
+
+    private FoodOrder getSuburbanFoodOrder() {
+        return new SuburbanFoodOrder(getItems());
     }
 
     private List<Item> getItems() {

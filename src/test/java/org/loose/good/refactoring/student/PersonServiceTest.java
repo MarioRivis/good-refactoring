@@ -19,7 +19,7 @@ public class PersonServiceTest {
 
     @Test
     public void getStudentNames() {
-        List<String> studentNames = personService.getPeopleNames(getTestPeople());
+        List<String> studentNames = personService.getOveragePeopleNames(getTestPeople());
 
         List<String> expectedNames = Arrays.asList("Amy Adams", "Ashley Cooper", "Daniel Foster", "James Close",
                 "James Davies", "Jane Smith", "Margret Flower", "Samantha Dish", "Tom Clark");
